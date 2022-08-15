@@ -39,9 +39,15 @@ data class CatsDTOItem(
     val vetstreet_url: String,
     val vocalisation: Int,
     val weight: Weight,
-    val wikipedia_url: String
+    val wikipedia_url: String?
 )
 
-fun CatsDTOItem.getCats() : CatsUserCaseDTO{
-    return CatsUserCaseDTO(name = name, image = image, rare = rare, structCat = weight)
+fun CatsDTOItem.getCats(): CatsUserCaseDTO {
+    return CatsUserCaseDTO(
+        name = name,
+        image = image,
+        description = description,
+        idCat = id,
+        wikipedia_url = wikipedia_url
+    )
 }

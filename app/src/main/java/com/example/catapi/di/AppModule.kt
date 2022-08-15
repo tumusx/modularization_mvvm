@@ -1,7 +1,7 @@
 package com.example.catapi.di
 
 import com.example.catapi.common.Const.BASE_URL
-import com.example.catapi.data.api.CatsApi
+import com.example.catapi.data.network.api.CatsApi
 import com.example.catapi.data.repository.CatsRepositoryImpl
 import com.example.catapi.domain.repository.CatsRepository
 import dagger.Module
@@ -24,6 +24,8 @@ object AppModule {
         return Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build().create(CatsApi::class.java)
     }
+
+
 
     @Provides
     @Singleton

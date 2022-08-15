@@ -8,9 +8,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class CatsUserCase @Inject constructor(private val repository: CatsRepository) {
-
-    operator fun invoke(): Flow<Resource<List<CatsUserCaseDTO>>> = flow {
+class CatsUserCaseImpl @Inject constructor(private val repository: CatsRepository) : CatsUseCase {
+    override suspend fun getCatsAll(): Flow<Resource<List<CatsUserCaseDTO>>> = flow {
         try {
             emit(Resource.Loading<List<CatsUserCaseDTO>>())
             val cats = repository.getCats().map { it.getCats() }

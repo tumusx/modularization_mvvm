@@ -5,7 +5,8 @@ import com.example.catapi.data.dto.Weight
 
 data class CatsUserCaseDTO(
     val image: Image?,
-    val structCat: Weight?,
     val name: String?,
-    val rare: Int?
+    val description: String,
+    val idCat: String?,
+    val wikipedia_url: String?
 )

@@ -2,7 +2,6 @@ package com.example.catapi.presenter.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +18,7 @@ class CatsAdapter : RecyclerView.Adapter<CatsAdapter.CatsViewHolder>() {
         @SuppressLint("SetTextI18n")
         fun setCat(cats: CatsUserCaseDTO){
             binding.txtNameCat.text = cats.name
-            binding.txtRareCat.text = cats.rare.toString()
-            binding.txtStructCat.text = cats.structCat?.imperial + cats.structCat?.metric
+            binding.txtDescriptionCat.text = "Description: " + cats.description
             Glide.with(binding.imgCat).load(cats.image?.url).into(binding.imgCat)
         }
     }
@@ -36,7 +34,6 @@ class CatsAdapter : RecyclerView.Adapter<CatsAdapter.CatsViewHolder>() {
     override fun onBindViewHolder(holder: CatsViewHolder, position: Int) {
        holder.setCat(catsList[position])
     }
-
 
     fun updateList(listNewItemCats: List<CatsUserCaseDTO>){
         val myDiffUtil = DiffUtilClass(catsList, listNewItemCats)

@@ -1,6 +1,6 @@
 package com.example.catapi.data.repository
 
-import com.example.catapi.data.api.CatsApi
+import com.example.catapi.data.network.api.CatsApi
 import com.example.catapi.data.dto.CatsDTOItem
 import com.example.catapi.domain.repository.CatsRepository
 import javax.inject.Inject
@@ -10,6 +10,10 @@ class CatsRepositoryImpl @Inject constructor(
 ) : CatsRepository {
     override suspend fun getCats(): List<CatsDTOItem> {
         return api.getCats()
+    }
+
+    override suspend fun getCatById(idCat: String): CatsDTOItem {
+        TODO("Not yet implemented")
     }
 
 }

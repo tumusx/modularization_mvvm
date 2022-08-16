@@ -8,5 +8,6 @@ data class CatsUserCaseDTO(
     val name: String?,
     val description: String,
     val idCat: String?,
-    val wikipedia_url: String?
+    val wikipedia_url: String?,
+    var catsFavorite: Boolean? = false
 )

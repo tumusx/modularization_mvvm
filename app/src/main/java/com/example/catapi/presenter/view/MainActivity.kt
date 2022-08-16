@@ -5,11 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.catapi.R
 import com.example.catapi.databinding.ActivityMainBinding
 import com.example.catapi.presenter.adapter.CatsAdapter
 import com.example.catapi.presenter.viewModel.CatsViewModel
@@ -20,7 +17,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel: CatsViewModel by viewModels()
-    private val myAdapter by lazy { CatsAdapter() }
     private lateinit var binding: ActivityMainBinding
 
     @SuppressLint("MissingInflatedId")
@@ -36,6 +32,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configRecycler() {
+        val myAdapter = CatsAdapter {catsItem->
+            Log.d("cats: ", catsItem.toString())
+        }
         binding.recycler.apply {
             adapter = myAdapter
             myAdapter.updateList(viewModel.state.value.cats)

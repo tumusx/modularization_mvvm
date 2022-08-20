@@ -1,25 +1,22 @@
 package com.example.catapi.presenter.viewModel
 
 import android.util.Log
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.catapi.common.Resource
+import com.example.catapi.data.network.local.entity.Cats
 import com.example.catapi.domain.userCase.CatsUserCaseImpl
 import com.example.catapi.presenter.view.CatsState
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class CatsViewModel @Inject constructor(private val getCatsUserCase: CatsUserCaseImpl) :
+class CatsViewModel (private val getCatsUserCase: CatsUserCaseImpl) :
     ViewModel() {
-
-    private val _state = mutableStateOf(CatsState())
-    val state: State<CatsState> = _state
+    private val _state = MutableLiveData(CatsState())
+    val state: LiveData<CatsState> = _state
 
     init {
         getCats()

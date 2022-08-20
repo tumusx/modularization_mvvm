@@ -2,13 +2,12 @@ package com.example.catapi.domain.userCase
 
 import com.example.catapi.common.Resource
 import com.example.catapi.data.dto.getCats
+import com.example.catapi.data.repository.CatsRepositoryImpl
 import com.example.catapi.domain.dto.CatsUserCaseDTO
-import com.example.catapi.domain.repository.CatsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
-class CatsUserCaseImpl @Inject constructor(private val repository: CatsRepository) : CatsUseCase {
+class CatsUserCaseImpl(private val repository: CatsRepositoryImpl) : CatsUseCase {
     override suspend fun getCatsAll(): Flow<Resource<List<CatsUserCaseDTO>>> = flow {
         try {
             emit(Resource.Loading<List<CatsUserCaseDTO>>())

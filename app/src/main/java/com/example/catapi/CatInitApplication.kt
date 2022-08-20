@@ -1,9 +1,17 @@
 package com.example.catapi
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.catapi.di.moduleTech
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 
-@HiltAndroidApp
 class CatInitApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidContext(this@CatInitApplication)
+            modules(moduleTech)
+        }
+    }
 }

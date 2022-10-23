@@ -5,7 +5,10 @@ plugins {
 
 android {
     compileSdk = 32
-
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
     defaultConfig {
         minSdk = 27
         targetSdk = 32
@@ -33,7 +36,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.bundles.retrofit)
     implementation(project(mapOf("path" to ":shared")))
-    implementation(project(mapOf("path" to ":list")))
 }

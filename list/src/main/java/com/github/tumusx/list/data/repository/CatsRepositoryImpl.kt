@@ -2,7 +2,7 @@ package com.github.tumusx.list.data.repository
 
 import com.github.tumusx.list.data.dto.CatsDTOItem
 import com.github.tumusx.list.domain.repository.CatsRepository
-import com.github.tumusx.local.service.CatsApi
+import com.github.tumusx.list.service.CatsApi
 
 class CatsRepositoryImpl(
     private val api: CatsApi

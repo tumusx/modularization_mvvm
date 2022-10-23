@@ -1,11 +1,15 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id ("kotlin-kapt")
 }
 
 android {
     compileSdk = 32
-
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
     defaultConfig {
         minSdk = 27
         targetSdk = 32
@@ -30,9 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        dataBinding = true
-    }
+
 }
 
 dependencies {
@@ -52,4 +54,6 @@ dependencies {
     implementation(libs.koinAndroid)
     implementation(libs.koinCore)
     implementation(libs.glide.lib)
+    implementation(libs.bundles.retrofit)
+
 }

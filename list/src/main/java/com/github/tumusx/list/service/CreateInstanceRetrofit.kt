@@ -1,6 +1,5 @@
-package com.github.tumusx.local.instanceRetrofit
+package com.github.tumusx.list.service
 
-import com.github.tumusx.local.service.CatsApi
 import com.github.tumusx.shared.constants.Const.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

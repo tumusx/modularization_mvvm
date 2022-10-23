@@ -7,10 +7,13 @@ plugins {
 android {
     namespace = "com.example.catapi"
     compileSdk = 32
-
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.catapi"
-        minSdk = 24
+        minSdk = 27
         targetSdk = 32
         versionCode = 1
         versionName = "1.0"
@@ -37,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":list")))
     val room_version = "2.4.1"
     implementation ("androidx.room:room-runtime:$room_version")
     kapt ("androidx.room:room-compiler:$room_version")

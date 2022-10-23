@@ -5,7 +5,10 @@ plugins {
 
 android {
     compileSdk = 32
-
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
     defaultConfig {
         minSdk = 27
         targetSdk = 32
@@ -31,7 +34,7 @@ android {
         jvmTarget = "1.8"
     }
 
-    dependencies{
+    dependencies {
         implementation(libs.androidx.core.ktx)
         implementation(libs.recyclerViewDependency)
     }

@@ -1,6 +1,5 @@
 package com.github.tumusx.list.presenter.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -10,9 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.catapi.R
-import com.example.catapi.data.network.local.entity.Cats
-import com.example.catapi.databinding.ActivityMainBinding
 import com.github.tumusx.list.R
 import com.github.tumusx.list.databinding.ActivityMainBinding
 import com.github.tumusx.list.domain.vo.CatsUserCaseDTO
@@ -57,12 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configRecycler(listCats: List<CatsUserCaseDTO>) {
-        val myAdapter = CatsAdapter { catsItem ->
-            val cats = Cats()
-            cats.nameCat = catsItem.name
-            cats.descriptionCat = catsItem.description
-            favoriteStateCatsViewModel.saveCats(cats)
-        }
+        val myAdapter = CatsAdapter()
         myAdapter.updateList(listCats)
 
         binding.recycler.apply {

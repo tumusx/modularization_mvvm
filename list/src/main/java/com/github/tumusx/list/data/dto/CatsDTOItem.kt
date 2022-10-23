@@ -1,6 +1,7 @@
 package com.github.tumusx.list.data.dto
 
-import com.example.catapi.domain.vo.CatsUserCaseDTO
+import com.github.tumusx.list.domain.vo.CatsUserCaseDTO
+
 
 data class CatsDTOItem(
     val adaptability: Int,

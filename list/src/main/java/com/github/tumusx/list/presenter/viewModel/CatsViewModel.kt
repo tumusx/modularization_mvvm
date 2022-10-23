@@ -8,14 +8,16 @@ import androidx.lifecycle.viewModelScope
 import com.github.tumusx.list.domain.userCase.CatsUserCaseImpl
 import com.github.tumusx.list.presenter.CatsState
 import com.github.tumusx.shared.resource.Resource
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class CatsViewModel(private val getCatsUserCase: CatsUserCaseImpl) :
     ViewModel() {
-    private val _state: MutableLiveData<CatsState> = MutableLiveData(CatsState.IsLoadingCats)
-    val state: LiveData<CatsState> = _state
+    private val _state: MutableStateFlow<CatsState> = MutableStateFlow(CatsState.IsLoadingCats)
+    val state: StateFlow<CatsState> = _state
 
     init {
         getCats()
